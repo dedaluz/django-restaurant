@@ -1,19 +1,30 @@
 from django.contrib import admin
-from restaurant.models import Category, Dish
+from services.models import Service, ServiceGroup
 from sorl.thumbnail.admin import AdminImageMixin
 from sorl.thumbnail import get_thumbnail
 
-    
-class HighlightAdmin(AdminImageMixin, admin.ModelAdmin):
-    """docstring for FeaturedSlide"""
+class DishInlineAdmin(AdminImageMixin, admin.TabularInline):
+    model = Service
+    fields = ('title', 'position', 'icon', 'status', )
+    # define the sortable
+    sortable_field_name = "position"
+    extra = 0
 
-    def thumbnail(self, obj):
-           im = get_thumbnail(obj.image, '60x60', quality=99)
-           return u"<img src='%s'>" % im.url
+class DishGroupAdmin(admin.ModelAdmin):
+    list_display = ('name', )
+    prepopulated_fields = {"slug": ("name",)} 
+    
+    inlines = [ServiceInlineAdmin]
+
+class DishAdmin(AdminImageMixin, admin.ModelAdmin):
+    """docstring for DishAdmin"""
+
     thumbnail.allow_tags = True
-       
-    list_display = ('title', 'position', 'status', 'thumbnail',)
+    
+    prepopulated_fields = {"slug": ("title",)}   
+    list_display = ('title', 'position', 'status',)
     pass
         
 
+admin.site.register(DishGroup, DishGroupAdmin)
 admin.site.register(Dish, DishAdmin)
