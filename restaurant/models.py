@@ -14,7 +14,7 @@ from django.db.models import permalink
 
 from managers import PublicManager
 
-class DishCategoryGroup(object):
+class DishCategoryGroup(models.Model):
     """docstring for CategoryGroup"""
     name = models.CharField(_('name'), max_length=100)
     
