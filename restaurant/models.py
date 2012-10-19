@@ -43,7 +43,6 @@ class DishCategory(models.Model):
     
     # images
     picture  = ImageField(_('picture'), upload_to='restaurant/categories/', blank=True, null=True)
-    slider = models.ForeignKey(Slider, blank=True, null=True)
     
     # position field
     position = models.PositiveSmallIntegerField("Position", default=0)
