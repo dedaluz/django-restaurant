@@ -81,7 +81,7 @@ class Dish(models.Model):
     is_speciality = models.NullBooleanField(_('is speciality'),)
     origin = models.CharField(blank=True, null=True, max_length=200)
     
-    slider = models.ForeignKey(Slider, blank=True, null=True)  
+    slider = models.ForeignKey(Slider, blank=True, null=True, related_name="dish_slider")  
     status  = models.IntegerField(_('status'), choices=STATUS_CHOICES, default=2)
     
     # position field
