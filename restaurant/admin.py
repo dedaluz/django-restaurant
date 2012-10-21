@@ -14,7 +14,7 @@ class DishGroupAdmin(admin.ModelAdmin):
     list_display = ('name', )
     prepopulated_fields = {"slug": ("name",)} 
     
-    inlines = [ServiceInlineAdmin]
+    inlines = [DishInlineAdmin]
 
 class DishAdmin(AdminImageMixin, admin.ModelAdmin):
     """docstring for DishAdmin"""
