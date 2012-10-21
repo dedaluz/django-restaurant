@@ -5,7 +5,7 @@ from sorl.thumbnail import get_thumbnail
 
 class DishInlineAdmin(AdminImageMixin, admin.TabularInline):
     model = Dish
-    fields = ('title', 'position', 'icon', 'status', )
+    fields = ('title', 'position', 'status', )
     # define the sortable
     sortable_field_name = "position"
     extra = 0
