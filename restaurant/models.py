@@ -35,7 +35,8 @@ class DishCategory(models.Model):
         (3, _('Featured')),
     )
     dish_category_group = models.ForeignKey(DishCategoryGroup)
-    name = models.CharField(_("name"), max_length=50, unique=True)
+    parent = models.ForeignKey('self', related_name='children', blank=True, null=True)
+    name = models.CharField(_("name"), max_length=100)
     slug = models.SlugField()
     caption = models.TextField(_('caption'), blank=True)
     description = models.TextField(_('description'))
@@ -54,6 +55,7 @@ class DishCategory(models.Model):
         verbose_name = u'Category'
         verbose_name_plural = u'Categories'
         ordering = ('position',)
+        unique_together = ('slug', 'parent',)
     
     def __unicode__(self):
         return self.name
