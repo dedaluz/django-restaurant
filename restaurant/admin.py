@@ -1,16 +1,16 @@
 from django.contrib import admin
-from services.models import Service, ServiceGroup
+from services.models import Dish, DishCategory, DishCategoryGroup
 from sorl.thumbnail.admin import AdminImageMixin
 from sorl.thumbnail import get_thumbnail
 
 class DishInlineAdmin(AdminImageMixin, admin.TabularInline):
-    model = Service
+    model = Dish
     fields = ('title', 'position', 'icon', 'status', )
     # define the sortable
     sortable_field_name = "position"
     extra = 0
 
-class DishGroupAdmin(admin.ModelAdmin):
+class DishCategoryAdmin(admin.ModelAdmin):
     list_display = ('name', )
     prepopulated_fields = {"slug": ("name",)} 
     
@@ -24,5 +24,5 @@ class DishAdmin(AdminImageMixin, admin.ModelAdmin):
     pass
         
 
-admin.site.register(DishGroup, DishGroupAdmin)
+admin.site.register(DishCategory, DishCategoryAdmin)
 admin.site.register(Dish, DishAdmin)
