@@ -18,8 +18,6 @@ class DishGroupAdmin(admin.ModelAdmin):
 
 class DishAdmin(AdminImageMixin, admin.ModelAdmin):
     """docstring for DishAdmin"""
-
-    thumbnail.allow_tags = True
     
     prepopulated_fields = {"slug": ("title",)}   
     list_display = ('title', 'position', 'status',)
