@@ -1,5 +1,5 @@
 from django.conf.urls.defaults import *
-from services.models import *
+from restaurant.models import *
 
 
 service_list = {

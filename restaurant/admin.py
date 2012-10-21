@@ -1,5 +1,5 @@
 from django.contrib import admin
-from services.models import Dish, DishCategory, DishCategoryGroup
+from restaurant.models import Dish, DishCategory, DishCategoryGroup
 from sorl.thumbnail.admin import AdminImageMixin
 from sorl.thumbnail import get_thumbnail
 
