@@ -34,7 +34,7 @@ class DishCategory(models.Model):
         (2, _('Public')),
         (3, _('Featured')),
     )
-    dish_category_group = models.ForeignKey(DishCategoryGroup)
+    category_group = models.ForeignKey(DishCategoryGroup)
     parent = models.ForeignKey('self', related_name='children', blank=True, null=True)
     name = models.CharField(_("name"), max_length=100)
     slug = models.SlugField()
@@ -70,7 +70,7 @@ class Dish(models.Model):
         (2, _('Public')),
         (3, _('Featured')),
     )
-    category = models.ForeignKey(DishCategory, related_name="categories")
+    category = models.ForeignKey(DishCategory, related_name="dish_categories")
     title = models.CharField(_('title'), max_length=150)
     slug = models.SlugField(unique=True)
     caption = models.TextField(_('caption'), blank=True)
