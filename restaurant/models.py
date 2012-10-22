@@ -38,7 +38,7 @@ class DishCategory(models.Model):
     name = models.CharField(_("name"), max_length=100)
     slug = models.SlugField()
     caption = models.TextField(_('caption'), blank=True)
-    description = models.TextField(_('description'). blank=True, null=True)
+    description = models.TextField(_('description'), blank=True, null=True)
     
     
     # images
