@@ -17,7 +17,6 @@ from managers import PublicManager
 class DishCategoryGroup(models.Model):
     """docstring for CategoryGroup"""
     name = models.CharField(_('name'), max_length=100)
-    
     class Meta:
         verbose_name = u'Dish Category Group'
         verbose_name_plural = u'Dish Category Groups'
