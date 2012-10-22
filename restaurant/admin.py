@@ -13,7 +13,7 @@ class DishCategoryInlineAdmin(AdminImageMixin, admin.TabularInline):
 class DishCategoryGroupAdmin(admin.ModelAdmin):
     list_display = ('name', )
         
-    inlines = [DishInlineAdmin]
+    inlines = [DishCategoryInlineAdmin]
 
 
 class DishInlineAdmin(AdminImageMixin, admin.TabularInline):
