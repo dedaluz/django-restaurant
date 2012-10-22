@@ -29,7 +29,7 @@ class DishCategoryAdmin(admin.ModelAdmin):
     
     inlines = [DishInlineAdmin]
 
-class DishPriceInlineAdmin(admin.ModelAdmin):
+class DishPriceInlineAdmin(admin.TabularInline):
     """docstring for DishAdmin"""
     model = DishPrice
     fields = ('category', 'price', 'notes', 'status', )
@@ -41,7 +41,7 @@ class DishAdmin(AdminImageMixin, admin.ModelAdmin):
     list_display = ('title', 'position', 'status',)
     
     inline = [DishPriceInlineAdmin]
-    pass
+
 
 
 class DishPriceCategoryAdmin(AdminImageMixin, admin.ModelAdmin):
