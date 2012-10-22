@@ -40,7 +40,7 @@ class DishAdmin(AdminImageMixin, admin.ModelAdmin):
     prepopulated_fields = {"slug": ("title",)}   
     list_display = ('title', 'position', 'status',)
     
-    inline = [DishPriceInlineAdmin]
+    inlines = [DishPriceInlineAdmin]
 
 
 
