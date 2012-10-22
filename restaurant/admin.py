@@ -53,5 +53,4 @@ class DishPriceCategoryAdmin(AdminImageMixin, admin.ModelAdmin):
 admin.site.register(DishCategoryGroup, DishCategoryGroupAdmin)
 admin.site.register(DishCategory, DishCategoryAdmin)
 admin.site.register(Dish, DishAdmin)
-admin.site.register(DishPrice, DishPriceAdmin)
 admin.site.register(DishPriceCategory, DishPriceCategoryAdmin)
