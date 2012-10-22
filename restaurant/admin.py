@@ -33,6 +33,7 @@ class DishPriceInlineAdmin(admin.TabularInline):
     """docstring for DishAdmin"""
     model = DishPrice
     fields = ('category', 'price', 'notes', 'status', )
+    extra = 0
    
 class DishAdmin(AdminImageMixin, admin.ModelAdmin):
     """docstring for DishAdmin"""
