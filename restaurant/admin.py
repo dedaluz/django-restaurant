@@ -32,8 +32,8 @@ class DishCategoryAdmin(admin.ModelAdmin):
 class DishPriceInlineAdmin(admin.ModelAdmin):
     """docstring for DishAdmin"""
     model = DishPrice
-
-
+    fields = ('category', 'price', 'notes', 'status', )
+   
 class DishAdmin(AdminImageMixin, admin.ModelAdmin):
     """docstring for DishAdmin"""
     
