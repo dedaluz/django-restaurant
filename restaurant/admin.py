@@ -3,7 +3,7 @@ from restaurant.models import Dish, DishCategory, DishCategoryGroup, DishPrice, 
 from sorl.thumbnail.admin import AdminImageMixin
 from sorl.thumbnail import get_thumbnail
 
-class DishCategoryInlineAdmin(AdminImageMixin, admin.TabularInline):
+class DishCategoryInlineAdmin(admin.TabularInline):
     model = DishCategory
     fields = ('name', 'position', 'status', )
     # define the sortable
@@ -29,17 +29,19 @@ class DishCategoryAdmin(admin.ModelAdmin):
     
     inlines = [DishInlineAdmin]
 
+class DishPriceInlineAdmin(admin.ModelAdmin):
+    """docstring for DishAdmin"""
+    pass
+
 class DishAdmin(AdminImageMixin, admin.ModelAdmin):
     """docstring for DishAdmin"""
     
     prepopulated_fields = {"slug": ("title",)}   
     list_display = ('title', 'position', 'status',)
+    
+    inline = [DishPriceInlineAdmin]
     pass
 
-class DishPriceAdmin(AdminImageMixin, admin.ModelAdmin):
-    """docstring for DishAdmin"""
-
-    pass
 
 class DishPriceCategoryAdmin(AdminImageMixin, admin.ModelAdmin):
     """docstring for DishAdmin"""
