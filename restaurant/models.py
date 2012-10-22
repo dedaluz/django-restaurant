@@ -38,7 +38,7 @@ class DishCategory(models.Model):
     name = models.CharField(_("name"), max_length=100)
     slug = models.SlugField()
     caption = models.TextField(_('caption'), blank=True)
-    description = models.TextField(_('description'), blank=True, null=True)
+    description = models.TextField(_('description'), blank=True)
     
     
     # images
@@ -70,11 +70,11 @@ class Dish(models.Model):
         (3, _('Featured')),
     )
     category = models.ForeignKey(DishCategory, related_name="dish_categories")
-    title = models.CharField(_('title'), max_length=150)
+    title = models.CharField(_('title'), max_length=200)
     slug = models.SlugField(unique=True)
     caption = models.TextField(_('caption'), blank=True)
     excerpt = models.TextField(_('excerpt'), blank=True)
-    description = models.TextField(_('description'))
+    description = models.TextField(_('description'), blank=True)
     ingredients = models.TextField(_('ingredients'), blank=True)
     notes = models.TextField(_('notes'), blank=True)
     is_vegetarian = models.NullBooleanField(_('is_vegetarian'),)
