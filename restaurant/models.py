@@ -134,7 +134,7 @@ class DishPrice(models.Model):
     class Meta:
         verbose_name = u'Price'
         verbose_name_plural = u'Prices'
-        ordering = ('-price',)
+        ordering = ('price',)
     
     def __unicode__(self):
         return  u'%s (%s): %0.2f ' % (self.dish, self.category, self.price)
