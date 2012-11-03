@@ -57,7 +57,10 @@ class DishCategory(models.Model):
         unique_together = ('slug', 'parent',)
     
     def __unicode__(self):
-        return self.name
+        if self.parent:
+          return u'%s: %s - %s' % (self.parent.name,
+                                   self.name)
+        return u'%s' % (self.name)
         
 class Dish(models.Model):
     """
@@ -132,6 +135,7 @@ class DishPrice(models.Model):
     class Meta:
         verbose_name = u'Price'
         verbose_name_plural = u'Prices'
+        ordering = ('-price')
     
     def __unicode__(self):
         return  u'%s (%s): %0.2f ' % (self.dish, self.category, self.price)
