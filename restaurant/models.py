@@ -130,12 +130,11 @@ class DishPrice(models.Model):
     price = models.DecimalField(_('price'), max_digits=6, decimal_places=2)
     notes = models.TextField(_('price notes'), blank=True)
     status  = models.IntegerField(_('status'), choices=STATUS_CHOICES, default=2)
-    
-    
+     
     class Meta:
         verbose_name = u'Price'
         verbose_name_plural = u'Prices'
-        ordering = ('-price')
+        ordering = ('-price',)
     
     def __unicode__(self):
         return  u'%s (%s): %0.2f ' % (self.dish, self.category, self.price)
