@@ -58,7 +58,7 @@ class DishCategory(models.Model):
     
     def __unicode__(self):
         if self.parent:
-          return u'%s: %s - %s' % (self.parent.name,
+          return u'%s > %s' % (self.parent.name,
                                    self.name)
         return u'%s' % (self.name)
         
